@@ -10,26 +10,28 @@ class Paper {
     this.currentY = 0;
     this.rotation = Math.random() * 30 - 15;
 
-    this.init();
+    // Only enable touch events if the device is a mobile/touchscreen
+    if (this.isTouchDevice()) {
+      this.init();
+    }
+  }
+
+  isTouchDevice() {
+    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
   }
 
   init() {
-    // Mouse Events (Desktop)
-    this.paper.addEventListener("mousedown", (e) => this.startDrag(e));
-    document.addEventListener("mousemove", (e) => this.drag(e));
-    document.addEventListener("mouseup", () => this.stopDrag());
-
-    // Touch Events (Mobile)
+    // Touch Events (Mobile only)
     this.paper.addEventListener("touchstart", (e) => this.startDrag(e.touches[0]), { passive: false });
     document.addEventListener("touchmove", (e) => this.drag(e.touches[0]), { passive: false });
     document.addEventListener("touchend", () => this.stopDrag());
 
-    // Ensure the paper has a default transformation
+    // Set default transformation
     this.paper.style.transform = `translate(0px, 0px) rotate(${this.rotation}deg)`;
   }
 
   startDrag(e) {
-    e.preventDefault(); // Prevent unwanted scrolling
+    e.preventDefault(); // Prevent scrolling while dragging
     this.isDragging = true;
     this.startX = e.clientX || e.pageX;
     this.startY = e.clientY || e.pageY;
@@ -38,7 +40,7 @@ class Paper {
 
   drag(e) {
     if (!this.isDragging) return;
-    e.preventDefault(); // Stop scrolling while dragging
+    e.preventDefault(); // Stop unwanted scrolling
 
     let moveX = (e.clientX || e.pageX) - this.startX;
     let moveY = (e.clientY || e.pageY) - this.startY;
@@ -57,5 +59,5 @@ class Paper {
   }
 }
 
-// Apply dragging to all paper elements
+// Apply dragging ONLY on mobile devices
 document.querySelectorAll(".paper").forEach((paper) => new Paper(paper));
