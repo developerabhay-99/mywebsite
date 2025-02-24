@@ -14,12 +14,12 @@ class Paper {
   }
 
   init() {
-    // Mouse events
+    // Mouse Events (Desktop)
     this.paper.addEventListener("mousedown", (e) => this.startDrag(e));
     document.addEventListener("mousemove", (e) => this.drag(e));
     document.addEventListener("mouseup", () => this.stopDrag());
 
-    // Touch events (for mobile)
+    // Touch Events (Mobile)
     this.paper.addEventListener("touchstart", (e) => this.startDrag(e.touches[0]), { passive: false });
     document.addEventListener("touchmove", (e) => this.drag(e.touches[0]), { passive: false });
     document.addEventListener("touchend", () => this.stopDrag());
@@ -31,8 +31,8 @@ class Paper {
   startDrag(e) {
     e.preventDefault(); // Prevent unwanted scrolling
     this.isDragging = true;
-    this.startX = e.clientX - this.currentX;
-    this.startY = e.clientY - this.currentY;
+    this.startX = e.clientX || e.pageX;
+    this.startY = e.clientY || e.pageY;
     this.paper.style.zIndex = highestZ++;
   }
 
@@ -40,8 +40,14 @@ class Paper {
     if (!this.isDragging) return;
     e.preventDefault(); // Stop scrolling while dragging
 
-    this.currentX = e.clientX - this.startX;
-    this.currentY = e.clientY - this.startY;
+    let moveX = (e.clientX || e.pageX) - this.startX;
+    let moveY = (e.clientY || e.pageY) - this.startY;
+
+    this.currentX += moveX;
+    this.currentY += moveY;
+
+    this.startX = e.clientX || e.pageX;
+    this.startY = e.clientY || e.pageY;
 
     this.paper.style.transform = `translate(${this.currentX}px, ${this.currentY}px) rotate(${this.rotation}deg)`;
   }
