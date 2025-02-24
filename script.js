@@ -21,8 +21,8 @@ class Paper {
 
     // Touch events (for mobile)
     this.paper.addEventListener("touchstart", (e) => this.startDrag(e.touches[0]), { passive: false });
-    this.paper.addEventListener("touchmove", (e) => this.drag(e.touches[0]), { passive: false });
-    this.paper.addEventListener("touchend", () => this.stopDrag());
+    document.addEventListener("touchmove", (e) => this.drag(e.touches[0]), { passive: false });
+    document.addEventListener("touchend", () => this.stopDrag());
 
     // Ensure the paper has a default transformation
     this.paper.style.transform = `translate(0px, 0px) rotate(${this.rotation}deg)`;
