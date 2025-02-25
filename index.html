@@ -36,6 +36,16 @@
 <div class="paper">
 <p class="p1">Drag the papers to move!</p>
 </div>
+<div class="music-player">
+  <p class="song-title">Now Playing: Your Song</p>
+  <audio id="audio-player" src="your-song.mp3"></audio>
+  <div class="controls">
+    <button id="play-pause">▶️</button>
+    <input type="range" id="seek-bar" value="0">
+    <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+  </div>
+</div>
+
 <!-- javascript file -->
   <script  src="script.js"></script>
 </body>
