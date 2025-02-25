@@ -74,6 +74,7 @@ const audio = document.getElementById("audio-player");
 const playPauseBtn = document.getElementById("play-pause");
 const seekBar = document.getElementById("seek-bar");
 const volumeBar = document.getElementById("volume-bar");
+const songTitle = document.querySelector(".song-title");
 
 playPauseBtn.addEventListener("click", () => {
   if (audio.paused) {
@@ -97,6 +98,5 @@ volumeBar.addEventListener("input", () => {
   audio.volume = volumeBar.value;
 });
 
-
-// Apply drag behavior to all papers
-document.querySelectorAll(".paper").forEach((paper) => new Paper(paper));
+// Ensure "Now Playing" is always visible but not interfering
+songTitle.textContent = "🎵 Now Playing: Your Song";
