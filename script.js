@@ -78,30 +78,31 @@ const audio = document.getElementById("audio-player");
 const playPauseBtn = document.getElementById("play-pause");
 const seekBar = document.getElementById("seek-bar");
 const volumeBar = document.getElementById("volume-bar");
-const songTitle = document.querySelector(".song-title");
 
+// Play/Pause Button
 playPauseBtn.addEventListener("click", () => {
-  if (audio.paused) {
-    audio.play();
-    playPauseBtn.textContent = "⏸️";
-  } else {
-    audio.pause();
-    playPauseBtn.textContent = "▶️";
-  }
+    if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = "⏸️";
+    } else {
+        audio.pause();
+        playPauseBtn.textContent = "▶️";
+    }
 });
 
+// Update Seek Bar
 audio.addEventListener("timeupdate", () => {
-  seekBar.value = (audio.currentTime / audio.duration) * 100;
+    seekBar.value = (audio.currentTime / audio.duration) * 100;
 });
 
+// Seek Functionality
 seekBar.addEventListener("input", () => {
-  audio.currentTime = (seekBar.value / 100) * audio.duration;
+    audio.currentTime = (seekBar.value / 100) * audio.duration;
 });
 
+// Volume Control
 volumeBar.addEventListener("input", () => {
-  audio.volume = volumeBar.value;
+    audio.volume = volumeBar.value;
 });
 
-// Ensure "Now Playing" is always visible but not interfering
-songTitle.textContent = "🎁 A small gift from me";
 
