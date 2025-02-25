@@ -65,66 +65,57 @@ p {
   user-select: none;
   
 }
+/* Music Player Styling */
 .music-player {
-  position: fixed;
-  bottom: 20px; /* Keeps it slightly above the bottom */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 350px; /* Keeps a good size for usability */
-  padding: 15px;
-  background: url('./backgroundImg.jpg') no-repeat center center;
-  background-size: cover; /* Ensures the image covers the player */
-  border-radius: 12px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  font-family: 'Short Stack', cursive;
-  border: 2px solid navy;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    padding: 15px;
+    background: url('backgroundImg.jpg') no-repeat center center;
+    background-size: cover;
+    background-blend-mode: multiply;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    border: 2px solid navy;
 }
 
 .song-title {
-  font-size: 25px; /* Keeps it readable */
-  font-weight: bold;
-  color: #fff; /* Ensures visibility over the background */
-  margin-bottom: 8px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;
 }
 
 .controls button {
-  background: rgba(255, 255, 255, 0.7);
-  border: 2px solid navy;
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 18px;
-  font-weight: bold;
-  color: navy;
-  cursor: pointer;
-  transition: 0.2s;
+    background: rgba(255, 255, 255, 0.8);
+    border: 2px solid navy;
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: navy;
+    cursor: pointer;
+    transition: 0.2s;
 }
 
 .controls button:hover {
-  background: navy;
-  color: white;
+    background: navy;
+    color: white;
 }
 
 #seek-bar, #volume-bar {
-  width: 90px;
-  cursor: pointer;
-  accent-color: navy;
-}
-
-#seek-bar {
-  height: 6px;
-  border-radius: 5px;
-}
-
-#volume-bar {
-  height: 6px;
-  border-radius: 5px;
+    width: 90px;
+    cursor: pointer;
+    accent-color: navy;
 }
