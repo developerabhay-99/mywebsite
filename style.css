@@ -65,3 +65,41 @@ p {
   user-select: none;
   
 }
+.music-player {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  padding: 15px;
+  background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
+  background-size: cover;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.music-player p {
+  font-family: 'Zeyada';
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: navy;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.controls button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#seek-bar, #volume-bar {
+  width: 80px;
+}
+
