@@ -67,23 +67,22 @@ p {
 }
 .music-player {
   position: fixed;
-  bottom: 20px;
+  bottom: 10px;  /* Ensures it's at the very bottom */
   left: 50%;
   transform: translateX(-50%);
   width: 300px;
-  padding: 15px;
-  background-image: url("https://i0.wp.com/textures.world/wp-content/uploads/2018/10/2-Millimeter-Paper-Background-copy.jpg?ssl=1");
-  background-size: cover;
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.9); /* Slight transparency for subtle look */
   border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
   text-align: center;
+  font-family: 'Short Stack', cursive;
 }
 
-.music-player p {
-  font-family: 'Zeyada';
-  font-size: 20px;
-  margin-bottom: 5px;
+.song-title {
+  font-size: 14px;
   color: navy;
+  margin-bottom: 5px;
 }
 
 .controls {
@@ -95,11 +94,10 @@ p {
 .controls button {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   cursor: pointer;
 }
 
 #seek-bar, #volume-bar {
   width: 80px;
 }
-
