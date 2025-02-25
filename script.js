@@ -70,6 +70,10 @@ class Paper {
     this.isDragging = false;
   }
 }
+
+// Apply drag behavior to all papers
+document.querySelectorAll(".paper").forEach((paper) => new Paper(paper));
+
 const audio = document.getElementById("audio-player");
 const playPauseBtn = document.getElementById("play-pause");
 const seekBar = document.getElementById("seek-bar");
@@ -99,4 +103,5 @@ volumeBar.addEventListener("input", () => {
 });
 
 // Ensure "Now Playing" is always visible but not interfering
-songTitle.textContent = "🎵 Now Playing: Your Song";
+songTitle.textContent = "🎁 A small gift from me";
+
