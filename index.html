@@ -36,19 +36,18 @@
 <div class="paper">
 <p class="p1">Drag the papers to move!</p>
 </div>
-<div class="music-player">
-  <p class="song-title">A small gift from me 🎁</p>
- <div style="display: none;">
-  <audio autoplay="" loop="" controls="">
-    <source src="https://heyyouu.netlify.app/song.mp3" type="audio/mp3">
-  </audio>
- </div>
-  <div class="controls">
-    <button id="play-pause">▶️</button>
-    <input type="range" id="seek-bar" value="0">
-    <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
-  </div>
-</div>
+<!-- Mini Music Player -->
+    <div class="music-player">
+        <p class="song-title">🎁 A small gift from me</p>
+        <audio id="audio-player" autoplay loop>
+            <source src="https://heyyouu.netlify.app/song.mp3" type="audio/mp3">
+        </audio>
+        <div class="controls">
+            <button id="play-pause">▶️</button>
+            <input type="range" id="seek-bar" value="0">
+            <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+        </div>
+    </div>
 
 <!-- javascript file -->
   <script  src="script.js"></script>
