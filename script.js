@@ -70,6 +70,33 @@ class Paper {
     this.isDragging = false;
   }
 }
+const audio = document.getElementById("audio-player");
+const playPauseBtn = document.getElementById("play-pause");
+const seekBar = document.getElementById("seek-bar");
+const volumeBar = document.getElementById("volume-bar");
+
+playPauseBtn.addEventListener("click", () => {
+  if (audio.paused) {
+    audio.play();
+    playPauseBtn.textContent = "⏸️";
+  } else {
+    audio.pause();
+    playPauseBtn.textContent = "▶️";
+  }
+});
+
+audio.addEventListener("timeupdate", () => {
+  seekBar.value = (audio.currentTime / audio.duration) * 100;
+});
+
+seekBar.addEventListener("input", () => {
+  audio.currentTime = (seekBar.value / 100) * audio.duration;
+});
+
+volumeBar.addEventListener("input", () => {
+  audio.volume = volumeBar.value;
+});
+
 
 // Apply drag behavior to all papers
 document.querySelectorAll(".paper").forEach((paper) => new Paper(paper));
