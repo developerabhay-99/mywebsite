@@ -28,10 +28,10 @@ body {
   padding: 10px;
 }
 .paper.image p {
-  font-size: 50px;
+  font-size: 60px;
 }
 img {
-  max-height: 260px;
+  max-height: 300px;
   width: 100%;
   user-select: none;
 }
